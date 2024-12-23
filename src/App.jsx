@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.auth);
+  const { user, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     // Fetch current user on app load

@@ -8,9 +8,7 @@ export const loadUser = createAsyncThunk(
     try {
       const response = await axios.get(
         "https://voyagers-backend.onrender.com/api/auth/current-user",
-        {
-          withCredentials: true, // Send session cookies
-        }
+        { withCredentials: true } // Send session cookies
       );
       return response.data.user;
     } catch (error) {
@@ -48,6 +46,5 @@ const authSlice = createSlice({
   },
 });
 
-// Ensure `setUser` is exported
 export const { setUser, logout } = authSlice.actions;
 export default authSlice.reducer;
