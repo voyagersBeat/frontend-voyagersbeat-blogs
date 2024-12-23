@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-
 export const blogApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://voyagers-backend.onrender.com/api/",
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.user?.token; // Fetch token from Redux state
+      const token = getState().auth.user?.token;
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
+      console.log("Headers being sent:", headers); // Debugging log
       return headers;
     },
     credentials: "include",
@@ -23,9 +23,6 @@ export const blogApi = createApi({
     }),
     fetchBlogById: builder.query({
       query: (id) => `/blogs/${id}`,
-    }),
-    fetchRelatedBlogs: builder.query({
-      query: (id) => `/blogs/related/${id}`,
     }),
     postBlog: builder.mutation({
       query: (newBlog) => ({
@@ -41,14 +38,14 @@ export const blogApi = createApi({
         method: "PATCH",
         body: rest,
       }),
-      invalidatesTags: (res, err, { id }) => [{ type: "Blogs", id }],
+      invalidatesTags: ["Blogs"],
     }),
     deleteBlog: builder.mutation({
       query: (id) => ({
         url: `/blogs/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: (res, err, { id }) => [{ type: "Blogs", id }],
+      invalidatesTags: ["Blogs"],
     }),
   }),
 });
@@ -56,7 +53,6 @@ export const blogApi = createApi({
 export const {
   useFetchBlogsQuery,
   useFetchBlogByIdQuery,
-  useFetchRelatedBlogsQuery,
   usePostBlogMutation,
   useUpdateBlogMutation,
   useDeleteBlogMutation,
