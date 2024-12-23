@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/features/auth/authSlice";
+import { setUser } from "../../redux/features/auth/authSlice"; // Correctly imported
 import {
   FaWhatsapp,
   FaLinkedin,
@@ -56,12 +56,9 @@ const Login = () => {
 
     try {
       const response = await loginUser(data).unwrap();
-      const { token, user } = response;
+      const { user } = response;
 
-      // Save token in cookies
-      document.cookie = `token=${token}; path=/`;
-
-      // Dispatch setUser to update Redux state and local storage
+      // Dispatch setUser to update Redux state
       dispatch(setUser({ user }));
 
       alert(`Login Successful, ${user.username}`);
