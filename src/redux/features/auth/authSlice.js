@@ -10,16 +10,9 @@ export const loadUser = createAsyncThunk(
         "https://voyagers-backend.onrender.com/api/auth/current-user",
         { withCredentials: true } // Send session cookies
       );
-      console.log("User data fetched successfully:", response.data.user); // Debugging log
       return response.data.user;
     } catch (error) {
-      console.error(
-        "Error fetching user data:",
-        error.response || error.message
-      ); // Debugging log
-      return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Failed to load user"
-      );
+      return thunkAPI.rejectWithValue("Failed to load user");
     }
   }
 );
@@ -41,17 +34,14 @@ const authSlice = createSlice({
     builder
       .addCase(loadUser.pending, (state) => {
         state.loading = true;
-        state.error = null; // Clear previous errors
       })
       .addCase(loadUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload; // Set user data
-        state.error = null; // Clear previous errors
       })
       .addCase(loadUser.rejected, (state, action) => {
         state.loading = false;
-        state.user = null; // Clear user data on error
-        state.error = action.payload; // Set the error message
+        state.error = action.payload; // Handle error
       });
   },
 });
