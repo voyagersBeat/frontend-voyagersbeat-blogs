@@ -1,9 +1,14 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
 export const blogApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://voyagers-backend.onrender.com/api/",
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.user?.token; // Fetch token from Redux state
+      if (token) {
+        headers.set("Authorization", `Bearer ${token}`);
+      }
+      return headers;
+    },
     credentials: "include",
   }),
   tagTypes: ["Blogs"],
@@ -24,7 +29,6 @@ export const blogApi = createApi({
         url: "/blogs/create-post",
         method: "POST",
         body: newBlog,
-        credentials: "include",
       }),
       invalidatesTags: ["Blogs"],
     }),
@@ -33,7 +37,6 @@ export const blogApi = createApi({
         url: `/blogs/update-post/${id}`,
         method: "PATCH",
         body: rest,
-        credentials: "include",
       }),
       invalidatesTags: (res, err, { id }) => [{ type: "Blogs", id }],
     }),
@@ -41,7 +44,6 @@ export const blogApi = createApi({
       query: (id) => ({
         url: `/blogs/${id}`,
         method: "DELETE",
-        credentials: "include",
       }),
       invalidatesTags: (res, err, { id }) => [{ type: "Blogs", id }],
     }),
