@@ -22,11 +22,9 @@ export const blogApi = createApi({
     }),
     fetchBlogById: builder.query({
       query: (id) => `/blogs/${id}`,
-      providesTags: (result, error, id) => [{ type: "Blogs", id }],
     }),
     fetchRelatedBlogs: builder.query({
-      query: (id) => `/blogs/related/${id}`,
-      providesTags: (result, error, id) => [{ type: "Blogs", id }],
+      query: (id) => `/blogs/related/${id}`, // Define fetchRelatedBlogs here
     }),
     postBlog: builder.mutation({
       query: (newBlog) => ({
@@ -34,7 +32,7 @@ export const blogApi = createApi({
         method: "POST",
         body: newBlog,
       }),
-      invalidatesTags: ["Blogs"], // Invalidate Blogs tag to refetch data
+      invalidatesTags: ["Blogs"],
     }),
     updateBlog: builder.mutation({
       query: ({ id, ...rest }) => ({
@@ -42,14 +40,14 @@ export const blogApi = createApi({
         method: "PATCH",
         body: rest,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Blogs", id }],
+      invalidatesTags: ["Blogs"],
     }),
     deleteBlog: builder.mutation({
       query: (id) => ({
         url: `/blogs/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Blogs", id }],
+      invalidatesTags: ["Blogs"],
     }),
   }),
 });
@@ -60,5 +58,5 @@ export const {
   usePostBlogMutation,
   useUpdateBlogMutation,
   useDeleteBlogMutation,
-  useFetchRelatedBlogsQuery,
+  useFetchRelatedBlogsQuery, // Export fetchRelatedBlogs
 } = blogApi;
