@@ -4,15 +4,6 @@ export const blogApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://voyagers-backend.onrender.com/api/",
-    prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.user?.token;
-      if (token) {
-        headers.set("Authorization", `Bearer ${token}`);
-      }
-      console.log("Headers being sent:", headers); // Debugging log
-      return headers;
-    },
-    credentials: "include",
   }),
   tagTypes: ["Blogs"],
   endpoints: (builder) => ({
@@ -23,6 +14,9 @@ export const blogApi = createApi({
     }),
     fetchBlogById: builder.query({
       query: (id) => `/blogs/${id}`,
+    }),
+    fetchRelatedBlogs: builder.query({
+      query: (id) => `/blogs/related/${id}`, // Define fetchRelatedBlogs here
     }),
     postBlog: builder.mutation({
       query: (newBlog) => ({
@@ -56,4 +50,5 @@ export const {
   usePostBlogMutation,
   useUpdateBlogMutation,
   useDeleteBlogMutation,
+  useFetchRelatedBlogsQuery, // Export fetchRelatedBlogs
 } = blogApi;
