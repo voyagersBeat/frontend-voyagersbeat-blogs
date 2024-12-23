@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const { user, loading } = useSelector((state) => state.auth);
+  const { user, loading, error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     // Fetch current user on app load
@@ -19,8 +19,22 @@ function App() {
     return <div>Loading...</div>; // Show a loader while fetching user data
   }
 
+  if (error) {
+    return (
+      <div>
+        <h1>Error: {error}</h1>
+        <p>Failed to load user. Please try logging in again.</p>
+      </div>
+    );
+  }
+
   if (!user) {
-    return <div>User not logged in or session expired.</div>; // Show a fallback message
+    return (
+      <div>
+        <h1>User Not Logged In</h1>
+        <p>Please log in to access the application.</p>
+      </div>
+    );
   }
 
   return (
