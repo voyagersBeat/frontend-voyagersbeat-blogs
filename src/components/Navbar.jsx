@@ -1,35 +1,42 @@
 import React, { useState } from "react";
-import logo from "../assets/vb-logo.png";
-import { Link, NavLink } from "react-router-dom";
-import { IoMenu, IoClose } from "react-icons/io5";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Avater from "../../src/assets/user profile img.png";
 import { useLogoutUserMutation } from "../redux/features/auth/AuthApi";
 import { logout } from "../redux/features/auth/authSlice";
-
-const navLists = [
-  { name: "Home", path: "/" },
-  { name: "Destination", path: "/destination" },
-  { name: "About us", path: "/about-us" },
-  { name: "Contact us", path: "/contact-us" },
-];
+import logo from "../assets/vb-logo.png";
+import Avater from "../../src/assets/user profile img.png";
+import { IoMenu, IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false); // State for mobile menu
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth); // Access user from Redux
+  const [logoutUser] = useLogoutUserMutation();
+
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
   };
 
-  const { user } = useSelector((state) => state.auth);
-  const [logoutUser] = useLogoutUserMutation();
-  const dispatch = useDispatch();
-
   const handleLogout = async () => {
     try {
+      // Call logout API
       await logoutUser().unwrap();
+      // Clear Redux state
       dispatch(logout());
-    } catch (err) {}
+      // Redirect to login page
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
+
+  const navLists = [
+    { name: "Home", path: "/" },
+    { name: "Destination", path: "/destination" },
+    { name: "About us", path: "/about-us" },
+    { name: "Contact us", path: "/contact-us" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white py-4 border-b z-50 shadow-md">
@@ -52,17 +59,18 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          {/* Hide Login link when the user is logged in */}
           {!user && (
             <li>
               <NavLink to="/login">Login</NavLink>
             </li>
           )}
-
-          {/* Display based on user role */}
-          {user && user.role === "user" ? (
+          {user && user.role === "user" && (
             <li className="flex items-center gap-3">
-              <img src={Avater} alt="user profile " className="size-8" />
+              <img
+                src={Avater}
+                alt="User Avatar"
+                className="h-8 w-8 rounded-full"
+              />
               <button
                 className="bg-[#1e73be] px-4 py-1.5 text-white rounded-sm"
                 onClick={handleLogout}
@@ -70,12 +78,14 @@ const Navbar = () => {
                 Logout
               </button>
             </li>
-          ) : null}
-
-          {/* For admin */}
+          )}
           {user && user.role === "admin" && (
             <li className="flex items-center gap-3">
-              <img src={Avater} alt="user profile " className="size-8" />
+              <img
+                src={Avater}
+                alt="Admin Avatar"
+                className="h-8 w-8 rounded-full"
+              />
               <Link to="/dashboard">
                 <button className="bg-[#1e73be] px-4 py-1.5 text-white rounded-sm">
                   Dashboard
@@ -98,7 +108,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {openMenu && (
         <ul className="fixed top-[70px] left-0 w-full h-auto pb-8 border-b bg-white shadow-sm z-40">
           {navLists.map((list, index) => (
@@ -112,7 +121,6 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          {/* Add Dashboard for Admin in Mobile Menu */}
           {user && user.role === "admin" && (
             <li className="mt-5 px-4">
               <NavLink
@@ -124,7 +132,6 @@ const Navbar = () => {
               </NavLink>
             </li>
           )}
-          {/* Hide Login link in mobile menu when logged in */}
           {!user && (
             <li className="px-4 mt-5">
               <NavLink to="/login" onClick={() => setOpenMenu(false)}>

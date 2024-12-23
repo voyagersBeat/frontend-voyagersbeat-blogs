@@ -1,39 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Check if token exists in cookies
-const usTokenAvailableCookie = () => {
-  const token = document.cookie
-    .split(";")
-    .find((cookie) => cookie.trim().startsWith("token="));
-  return !!token; // Returns true if token exists
+// Initial state for authentication
+const initialState = {
+  user: null, // Start with no user logged in
 };
-
-// Load user from local storage
-const loadUserFromLocalStorage = () => {
-  try {
-    const serialState = localStorage.getItem("user");
-    if (serialState === null) {
-      return { user: null };
-    }
-    return { user: JSON.parse(serialState) };
-  } catch (err) {
-    return { user: null };
-  }
-};
-
-const initialState = loadUserFromLocalStorage();
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    // Set the user in Redux state
     setUser: (state, action) => {
       state.user = action.payload.user;
-      localStorage.setItem("user", JSON.stringify(state.user));
     },
+    // Clear the user during logout
     logout: (state) => {
       state.user = null;
-      localStorage.removeItem("user");
     },
   },
 });
