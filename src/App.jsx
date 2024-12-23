@@ -19,6 +19,10 @@ function App() {
     return <div>Loading...</div>; // Show a loader while fetching user data
   }
 
+  if (!user) {
+    return <div>User not logged in or session expired.</div>; // Show a fallback message
+  }
+
   return (
     <div className="bg-backPrimary min-h-screen flex flex-col">
       <Navbar />
