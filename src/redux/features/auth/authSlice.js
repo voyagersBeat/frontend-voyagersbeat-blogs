@@ -1,13 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-// Initial state for authentication
-const initialState = {
-  user: null, // Start with no user logged in
-};
+// Async action to fetch current user
+export const loadUser = createAsyncThunk(
+  "auth/loadUser",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        "https://voyagers-backend.onrender.com/api/auth/current-user",
+        {
+          withCredentials: true, // Send session cookies
+        }
+      );
+      return response.data.user;
+    } catch (error) {
+      return thunkAPI.rejectWithValue("Failed to load user");
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: { user: null, loading: false, error: null },
   reducers: {
     // Set the user in Redux state
     setUser: (state, action) => {
@@ -18,7 +32,21 @@ const authSlice = createSlice({
       state.user = null;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loadUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(loadUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload; // Set user data
+      })
+      .addCase(loadUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload; // Handle error
+      });
+  },
 });
 
-export const { setUser, logout } = authSlice.actions;
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;
