@@ -46,7 +46,7 @@ const ContactUs = () => {
 
     try {
       const response = await axios.post(
-        "https://voyagers-backend.onrender.com/api/contact",
+        "https://backend-voyagersbeat-blogs.onrender.com/api/contact",
         formData
       );
       console.log(response.data);

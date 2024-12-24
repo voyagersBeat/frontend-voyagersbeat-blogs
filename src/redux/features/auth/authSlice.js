@@ -7,7 +7,7 @@ export const loadUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        "https://voyagers-backend.onrender.com/api/auth/current-user",
+        "https://backend-voyagersbeat-blogs.onrender.com/api/auth/current-user",
         { withCredentials: true } // Send session cookies
       );
       return response.data.user;

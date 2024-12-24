@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://voyagers-backend.onrender.com/api/auth",
+    baseUrl: "https://backend-voyagersbeat-blogs.onrender.com/api/auth",
     credentials: "include", // Ensures cookies are sent and received
   }),
   endpoints: (builder) => ({

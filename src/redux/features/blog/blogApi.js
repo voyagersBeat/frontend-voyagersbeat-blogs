@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const blogApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://voyagers-backend.onrender.com/api/",
+    baseUrl: "https://backend-voyagersbeat-blogs.onrender.com/api/",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.user?.token; // Fetch token from Redux state
       if (token) {
