@@ -70,38 +70,45 @@ const UpdatePost = () => {
 
     try {
       const content = await editorRef.current.save();
+      console.log("EditorJS content data:", content);
+
       const token = user?.token;
 
       if (!token) {
-        setMessage("User authentication failed. Please log in again.");
+        alert("Your session has expired. Please log in again.");
+        navigate("/login");
         return;
       }
 
-      const updatePost = {
-        title: title || blog.post.title,
-        coverImg: coverImg || blog.post.coverImg,
+      const newPost = {
+        title,
+        coverImg,
         content,
-        description: metaDescription || blog.post.description,
+        description: metaDescription,
         category,
         author: user?.id,
-        rating: rating || blog.post.rating,
+        rating,
       };
 
-      console.log("update post is", updatePost);
+      console.log("Post data to be sent:", newPost);
 
-      const response = await updateBlog({
-        id,
-        data: updatePost,
+      const response = await postBlog({
+        data: newPost,
         headers: { Authorization: `Bearer ${token}` },
       }).unwrap();
 
-      console.log("response is ", response);
-      alert("Blog is updated successfully");
-      refetch();
+      console.log("API Response:", response);
+      alert("Blog is created successfully");
       navigate("/dashboard");
     } catch (err) {
-      console.error("Failed to update the post:", err);
-      setMessage("Failed to update the post. Please try again later.");
+      console.error("Failed to submit the post:", err);
+
+      // Handle EditorJS block error specifically
+      if (err.message.includes("Block")) {
+        setMessage("Error with content blocks. Please check your content.");
+      } else {
+        setMessage("Failed to submit the post. Please try again later.");
+      }
     }
   };
 
