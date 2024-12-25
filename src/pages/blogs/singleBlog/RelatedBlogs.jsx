@@ -8,7 +8,7 @@ const RelatedBlogs = () => {
 
   return (
     <div>
-      <h3 className="text-xl font-medium pt-8 px-8 pb-5">Related Blogs</h3>
+      <h3 className="text-xl font-medium pt-2 px-8 pb-5">Related Blogs</h3>
       <hr />
       {isLoading ? (
         <div className="p-8">Loading...</div>
@@ -20,20 +20,22 @@ const RelatedBlogs = () => {
             <Link
               key={blog._id || `blog-${index}`}
               to={`/blogs/${blog?._id}`}
-              className="flex flex-col sm:flex-row sm:items-center gap-4 shadow-sm px-8 py-4"
+              className="flex items-center gap-4 shadow-sm px-4 py-4 rounded-sm hover:bg-gray-50 transition"
             >
-              <div className="size-14 ">
+              <div className="w-16 h-16 flex-shrink-0">
                 <img
                   src={blog.coverImg}
                   alt={blog.title || "blog image"}
-                  className="h-full w-full rounded-full ring-2 ring-blue-700"
+                  className="w-full h-full rounded-full object-cover"
                 />
               </div>
-              <div>
-                <h4 className="font-medium text-[#1e73be]">
+              <div className="flex-1">
+                <h4 className="font-medium text-[#1e73be] text-sm md:text-base">
                   {blog.title.substring(0, 50)}
                 </h4>
-                <p>{blog?.description.substring(0, 50)}....</p>
+                <p className="text-gray-600 text-xs md:text-sm">
+                  {blog?.description.substring(0, 50)}...
+                </p>
               </div>
             </Link>
           ))}

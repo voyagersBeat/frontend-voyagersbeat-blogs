@@ -13,7 +13,10 @@ const Comment = ({ comments }) => {
         <div>
           {comments?.length > 0 ? (
             <div>
-              <h3 className="text-lg font-medium">All Comments</h3>
+              <h3 className="text-lg font-medium">All Comments</h3>{" "}
+              <p className="text-gray-600 my-5">
+                Join the discussion! Share your thoughts and feedback below.
+              </p>
               <div>
                 {comments.map((comment, index) => (
                   <div key={index} className="mt-4">
@@ -21,13 +24,13 @@ const Comment = ({ comments }) => {
                       <img
                         src={UserIcon}
                         alt="comment user icon"
-                        className="h-14"
+                        className="w-12 h-12 rounded-full border object-cover"
                       />
                       <div>
                         <p className="text-lg font-medium underline capitalize underline-offset-4 text-blue-400">
                           {comment?.user?.username}
                         </p>
-                        <p className="text-[12px] italic">
+                        <p className="text-[13px] italic">
                           {dateformatter(comment.createdAt)}
                         </p>
                       </div>

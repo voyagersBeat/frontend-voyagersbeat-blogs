@@ -12,15 +12,15 @@ import Logo from "../../src/assets/vb-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#eeeded] text-gray-800">
-      <div className="container mx-auto px-6 py-8">
-        <div className="max-w-7xl mx-auto pb-2 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <footer className="bg-gray-800 text-white">
+      <div className="container mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {/* Logo and Description */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <a
                 href="/"
-                className="flex items-center space-x-3 text-2xl font-semibold text-[#165a94]"
+                className="flex items-center space-x-3 text-2xl font-bold"
               >
                 <img
                   src={Logo}
@@ -29,190 +29,171 @@ const Footer = () => {
                   height="64"
                   className="w-16"
                 />
-                <span>
+                <span className="text-lg">
                   Voyagers Beat <br />
-                  <span className="text-lg text-[#165a94]">
-                    (Live to Travel)
-                  </span>
+                  <span className="text-sm font-light">Live to Travel</span>
                 </span>
               </a>
-              <p className="max-w-md text-gray-600">
-                Discover the world with Voyagers Beat—your ultimate travel
-                companion. From offbeat adventures to curated group trips.
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Voyagers Beat brings you closer to extraordinary experiences and
+                unforgettable journeys. Explore the world, one destination at a
+                time.
               </p>
-              {/* Social Media Links */}
-              <div className="flex space-x-6 text-gray-700">
+              <div className="flex space-x-4 text-gray-400">
                 <a
                   href="https://www.linkedin.com/company/voyagersbeat07/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-600"
+                  className="hover:text-blue-400 transition-colors"
                 >
-                  <FaLinkedin size={23} />
+                  <FaLinkedin size={24} />
                 </a>
                 <a
                   href="https://www.youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-red-600"
+                  className="hover:text-red-500 transition-colors"
                 >
-                  <FaYoutube size={23} />
+                  <FaYoutube size={24} />
                 </a>
                 <a
                   href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-500"
+                  className="hover:text-blue-400 transition-colors"
                 >
-                  <FaTwitter size={23} />
+                  <FaTwitter size={24} />
                 </a>
                 <a
                   href="https://www.facebook.com/voyagersBeat/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-700"
+                  className="hover:text-blue-600 transition-colors"
                 >
-                  <FaFacebook size={23} />
+                  <FaFacebook size={24} />
                 </a>
                 <a
                   href="https://www.instagram.com/voyagersbeat?igsh=OGI2cGh0NzdvamE4"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-600"
+                  className="hover:text-pink-400 transition-colors"
                 >
-                  <FaInstagram size={23} />
+                  <FaInstagram size={24} />
                 </a>
                 <a
                   href="https://wa.me/8448591315"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-green-600"
+                  className="hover:text-green-400 transition-colors"
                 >
-                  <FaWhatsapp size={23} />
+                  <FaWhatsapp size={24} />
                 </a>
               </div>
             </div>
+            {/* Our Solutions */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Our Solutions</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a
+                    href="https://voyagersbeat.com/"
+                    className="hover:text-white"
+                  >
+                    Voyagers Beat
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.maplecomputers.in/index.html"
+                    className="hover:text-white"
+                  >
+                    Maple Computers
+                  </a>
+                </li>
+                <li>
+                  <a href="/" className="hover:text-white">
+                    Voyagers Blogs
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-            {/* Navigation Links */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:col-span-2 gap-6">
-              <div>
-                <h3 className="text-md font-semibold text-gray-800">
-                  Our Solutions
-                </h3>
-                <ul className="mt-4 space-y-2">
-                  <li>
-                    <a
-                      href="https://voyagersbeat.com/"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Voyagers Beat
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.maplecomputers.in/index.html"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Maple Computers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/" className="text-gray-600 hover:text-[#1e73be]">
-                      Voyagers Blogs
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-md font-semibold text-gray-800">
-                  Resources
-                </h3>
-                <ul className="mt-4 space-y-2">
-                  <li>
-                    <a
-                      href="/destination"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/terms-and-conditions"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Terms of Service
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/privacy-policy"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Privacy Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-md font-semibold text-gray-800">Company</h3>
-                <ul className="mt-4 space-y-2">
-                  <li>
-                    <a
-                      href="/about-us"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/career"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/contact-us"
-                      className="text-gray-600 hover:text-[#1e73be]"
-                    >
-                      Contact Us
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-md font-semibold text-gray-800">Address</h3>
-                <ul className="mt-4 space-y-2">
-                  <li>
-                    <span className="text-gray-800 font-semibold">
-                      Head Office:
-                    </span>
-                    <br />
-                    2nd Floor, C 2/13, Phase 2, Ashok Vihar, Delhi, 110052
-                  </li>
-                  <li>
-                    <span className="text-gray-800 font-semibold">
-                      Branch Office:
-                    </span>
-                    <br />
-                    H7 B8 Aggarwal Plaza, Netaji Subhash Place, Delhi, 110033
-                  </li>
-                </ul>
-              </div>
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a href="/about-us" className="hover:text-white">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact-us" className="hover:text-white">
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a href="/destination" className="hover:text-white">
+                    Destinations
+                  </a>
+                </li>
+                <li>
+                  <a href="/write-for-us" className="hover:text-white">
+                    Write For Us
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a href="/terms-and-conditions" className="hover:text-white">
+                    Terms & Conditions
+                  </a>
+                </li>
+                <li>
+                  <a href="/privacy-policy" className="hover:text-white">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/career" className="hover:text-white">
+                    Careers
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Address */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <span className="font-semibold text-white">Head Office:</span>
+                  <br /> 2nd Floor, C 2/13, Phase 2, Ashok Vihar, Delhi, 110052
+                </li>
+                <li>
+                  <span className="font-semibold text-white">
+                    Branch Office:
+                  </span>
+                  <br /> H7 B8 Aggarwal Plaza, Netaji Subhash Place, Delhi,
+                  110033
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* Footer Bottom */}
-          <div className="mt-12 border-t border-gray-300 pt-6 text-center">
-            <p className="text-gray-600 text-sm">
-              © 2024. Crafted with <FaHeart className="inline text-red-600" />{" "}
-              by{" "}
+          <div className="mt-12 border-t border-gray-600 pt-6 text-center">
+            <p className="text-sm text-gray-400">
+              © 2024. Crafted with <FaHeart className="inline text-red-500" />{" "}
+              by
               <a
                 href="https://voyagersbeat.com/"
-                className="text-[#1e73be] hover:text-blue-900 ml-1"
+                className="text-white hover:text-gray-300 ml-1"
               >
                 Voyagers Beat
               </a>

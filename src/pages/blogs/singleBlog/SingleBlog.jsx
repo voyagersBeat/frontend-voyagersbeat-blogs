@@ -38,9 +38,26 @@ const SingleBlog = ({ Blogs }) => {
           dangerouslySetInnerHTML={{ __html: contentHtml }}
           className="space-y-3 editJSDiv"
         />
-        <div>
-          <span className="text-lg font-medium">Rating : </span>
-          <span>{rating} (based on 489 reviews)</span>
+        <div className="mt-10 border-t pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <span className="text-lg font-semibold text-gray-700">
+                Category:{" "}
+              </span>
+              <span className="text-blue-500 font-medium">
+                {category || "General"}
+              </span>
+            </div>
+            <div>
+              <span className="text-lg font-semibold text-gray-700">
+                Rating:{" "}
+              </span>
+              <span className="text-gray-900">{rating} </span>
+              <span className="text-sm text-gray-600">
+                (based on 489 reviews)
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

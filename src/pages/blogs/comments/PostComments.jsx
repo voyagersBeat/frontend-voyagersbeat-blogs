@@ -39,24 +39,22 @@ const PostComments = () => {
   return (
     <>
       <div className="mt-8">
-        <h3 className="text-lg font-medium mb-8">Leave a Comment </h3>
-        <form onSubmit={handleSubmit}>
+        <h3 className="text-lg font-medium mb-6">Leave a Comment </h3>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <textarea
             name="text"
             value={comment}
-            onChange={(e) => {
-              setComment(e.target.value);
-            }}
+            onChange={(e) => setComment(e.target.value)}
             cols="30"
-            rows="10"
-            placeholder="Post a Comment..."
-            className="w-full bg-backprimary focus:outline-none p-5 "
+            rows="6"
+            placeholder="Write your comment here..."
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-gray-700"
           />
           <button
             type="submit"
-            className="w-full bg-primary hover:bg-[#1e73be] text-white font-medium py-2 rounded-md"
+            className="px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
           >
-            Submit
+            Post Comment
           </button>
         </form>
       </div>

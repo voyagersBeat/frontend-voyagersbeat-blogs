@@ -31,7 +31,7 @@ const Hero = () => {
       </div>
 
       {/* Image Carousel */}
-      <div className="md:w-1/2 w-full mx-auto">
+      <div className="md:w-1/2 w-full mx-auto ">
         <Swiper
           slidesPerView={1}
           spaceBetween={20}

@@ -128,9 +128,10 @@ const Login = () => {
 
       {/* Right Side - Login Form */}
       <div className="md:w-1/2 w-full flex items-center justify-center">
-        <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-md">
+        <div className="max-w-md w-full p-8 bg-white rounded-sm shadow-md">
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-            Login to Voyagers Beat
+            Welcome Back <br />
+            <span className="text-[#1e73be] ">Login to Voyagers Beat</span>
           </h2>
           <form className="space-y-6" onSubmit={handleLogin}>
             {/* Email Input */}

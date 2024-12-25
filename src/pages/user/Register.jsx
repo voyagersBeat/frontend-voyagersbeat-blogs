@@ -126,7 +126,7 @@ const Register = () => {
 
       {/* Right Side - Register Form */}
       <div className="md:w-1/2 w-full flex items-center justify-center">
-        <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-md">
+        <div className="max-w-md w-full p-8 bg-white rounded-sm shadow-md">
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Sign Up to Voyagers Beat
           </h2>
