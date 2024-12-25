@@ -42,7 +42,7 @@ const FAQSection = () => {
             <div key={index} className="p-4 border rounded-md bg-gray-50">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-lg font-medium text-gray-600 w-full text-left focus:outline-none flex justify-between items-center"
+                className="text-lg font-md text-gray-600 w-full text-left focus:outline-none flex justify-between items-center"
               >
                 {faq.question}
                 <span>{isOpen ? "-" : "+"}</span>
@@ -60,7 +60,7 @@ const OneSingleBlog = () => {
   const { id } = useParams();
   const { data: blog, error, isLoading } = useFetchBlogByIdQuery(id);
   return (
-    <div className="text-primary container mx-auto mt-32 px-4 sm:px-6 lg:px-12">
+    <div className="text-primary container mx-auto mt-32 sm:px-6 lg:px-12">
       <div>
         {isLoading && <div>Loading...</div>}
         {error && <div>Something went wrong</div>}
