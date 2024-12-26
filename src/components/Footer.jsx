@@ -6,6 +6,9 @@ import {
   FaYoutube,
   FaTwitter,
   FaWhatsapp,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaGlobe,
 } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import Logo from "../../src/assets/vb-logo.png";
@@ -131,7 +134,8 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          {/* social icon  */}
+
+          {/* Social Icons */}
           <div className="xl:pr-96 px-0">
             <div className="xl:pr-96 px-0">
               <div className="xl:pr-52 px-0">
@@ -140,57 +144,90 @@ const Footer = () => {
                     href="https://www.linkedin.com/company/voyagersbeat07/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-blue-400 transition-colors"
+                    className="text-blue-700 hover:text-blue-800 transition-colors border border-white rounded-full p-1.5 bg-white"
                   >
-                    <FaLinkedin size={24} />
+                    <FaLinkedin size={18} className="font-bold" />
                   </a>
                   <a
                     href="https://www.twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-blue-400 transition-colors"
+                    className="text-blue-400 hover:text-blue-500 transition-colors border border-white rounded-full p-1.5 bg-white"
                   >
-                    <FaTwitter size={24} />
+                    <FaTwitter size={18} className="font-bold" />
                   </a>
                   <a
                     href="https://www.facebook.com/voyagersBeat/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-blue-600 transition-colors"
+                    className="text-blue-600 hover:text-blue-700 transition-colors border border-white rounded-full p-1.5 bg-white"
                   >
-                    <FaFacebook size={24} />
+                    <FaFacebook size={18} className="font-bold" />
                   </a>
                   <a
-                    href="https://wa.me/8448591315"
+                    href="https://www.youtube.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-green-400 transition-colors"
+                    className="text-red-600 hover:text-red-700 transition-colors border border-white rounded-full p-1.5 bg-white"
                   >
-                    <FaYoutube size={24} />
+                    <FaYoutube size={18} className="font-bold" />
                   </a>
                   <a
                     href="https://www.instagram.com/voyagersbeat?igsh=OGI2cGh0NzdvamE4"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-pink-400 transition-colors"
+                    className="text-pink-500 hover:text-pink-600 transition-colors border border-white rounded-full p-1.5 bg-white"
                   >
-                    <FaInstagram size={24} />
+                    <FaInstagram size={18} className="font-bold" />
                   </a>
                   <a
                     href="https://wa.me/8448591315"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-green-400 transition-colors"
+                    className="text-green-500 hover:text-green-600 transition-colors border border-white rounded-full p-1.5 bg-white"
                   >
-                    <FaWhatsapp size={24} />
+                    <FaWhatsapp size={18} className="font-bold" />
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* footer img  */}
+          {/* Contact Info */}
+          <div className="mt-8 flex flex-col md:flex-row text-gray-400 gap-3 md:gap-10  justify-center items-center">
+            <div className="flex items-center gap-2">
+              <FaPhoneAlt />
+              <span>
+                <a href="tel:+918448591315" className="hover:text-gray-600">
+                  +91 8448591315
+                </a>
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaEnvelope />
+              <span>
+                <a
+                  href="mailto:info@voyagersbeat.com"
+                  className="hover:text-gray-600"
+                >
+                  info@voyagersbeat.com
+                </a>
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaGlobe />
+              <span>
+                <a
+                  href="https://www.voyagersbeat.com"
+                  className="hover:text-gray-600"
+                >
+                  www.voyagersbeat.com
+                </a>
+              </span>
+            </div>
+          </div>
 
+          {/* Footer Image */}
           <div className="mt-8">
             <img
               src={FooterImg}
