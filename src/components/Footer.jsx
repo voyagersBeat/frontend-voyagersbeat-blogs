@@ -195,7 +195,7 @@ const Footer = () => {
             <img
               src={FooterImg}
               alt="Footer Image"
-              className="w-full h-auto object-cover"
+              className="w-full md:h-auto h-[70px] object-cover"
             />
           </div>
 
