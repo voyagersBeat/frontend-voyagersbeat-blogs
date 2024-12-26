@@ -19,11 +19,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
-import Image1 from "../../assets/hero-images/blog-image-1.webp";
-import Image2 from "../../assets/hero-images/blog-image-2.webp";
-import Image3 from "../../assets/hero-images/blog-image-3.webp";
-import Image4 from "../../assets/hero-images/blog-image-4.webp";
-import Image5 from "../../assets/hero-images/blog-image-5.webp";
+import Image1 from "/src/assets/hero-images/blog-image-5.webp";
+import Image2 from "/src/assets/hero-images/blog-image-4.jpeg";
+import Image3 from "/src/assets/hero-images/blog-image-1.webp";
+import Image4 from "/src/assets/hero-images/blog-image-2.webp";
+import Image5 from "/src/assets/hero-images/blog-image-3.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
