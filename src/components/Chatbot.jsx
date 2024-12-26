@@ -11,7 +11,7 @@ const App = () => {
   const [isChatOpen, setIsChatOpen] = useState(false); // Controls chatbot visibility
   const chatWindowRef = useRef(null);
 
-  const BACKEND_URL = "http://localhost:8000/api/chatbot";
+  const BACKEND_URL = "https://backend-voyagersbeat-blogs.onrender.com/api/chatbot";
 
   const sendMessage = async () => {
     if (!input.trim()) return;
