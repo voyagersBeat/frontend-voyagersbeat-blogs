@@ -10,8 +10,10 @@ const App = () => {
   const [input, setInput] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false); // Controls chatbot visibility
   const chatWindowRef = useRef(null);
+  const [chatHeight, setChatHeight] = useState("100%"); // Default chat height
 
-  const BACKEND_URL = "https://backend-voyagersbeat-blogs.onrender.com/api/chatbot";
+  const BACKEND_URL =
+    "https://backend-voyagersbeat-blogs.onrender.com/api/chatbot";
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -76,6 +78,25 @@ const App = () => {
     }
   }, [messages]);
 
+  // Adjust chat height dynamically based on viewport changes (e.g., keyboard open/close)
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportHeight = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+
+      setChatHeight(`${viewportHeight}px`);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize(); // Set initial height
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       {/* Chatbot Icon */}
@@ -90,7 +111,10 @@ const App = () => {
 
       {/* Chatbot Window */}
       {isChatOpen && (
-        <div className="fixed bottom-4 right-4 md:w-80 w-72 md:h-[500px] h-[400px] shadow-lg rounded-sm bg-white border border-gray-200 flex flex-col z-50">
+        <div
+          className="fixed bottom-4 right-4 md:w-80 w-72 shadow-lg rounded-sm bg-white border border-gray-200 flex flex-col z-50"
+          style={{ height: `calc(${chatHeight} - 20rem)` }} // Adjust height
+        >
           {/* Chatbot Header */}
           <div className="bg-[#1e73be] text-white p-4 rounded-t-sm flex justify-between items-center">
             <h3 className="text-lg font-semibold">Chatbot</h3>
