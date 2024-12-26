@@ -161,6 +161,14 @@ const Footer = () => {
                     <FaFacebook size={24} />
                   </a>
                   <a
+                    href="https://wa.me/8448591315"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-green-400 transition-colors"
+                  >
+                    <FaYoutube size={24} />
+                  </a>
+                  <a
                     href="https://www.instagram.com/voyagersbeat?igsh=OGI2cGh0NzdvamE4"
                     target="_blank"
                     rel="noopener noreferrer"
