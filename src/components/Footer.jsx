@@ -9,11 +9,12 @@ import {
 } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import Logo from "../../src/assets/vb-logo.png";
+import FooterImg from "../assets/footer-desktop.webp";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white">
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-4 sm:px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {/* Logo and Description */}
@@ -22,13 +23,7 @@ const Footer = () => {
                 href="/"
                 className="flex items-center space-x-3 text-2xl font-bold"
               >
-                <img
-                  src={Logo}
-                  alt="Voyagers Logo"
-                  width="64"
-                  height="64"
-                  className="w-16"
-                />
+                <img src={Logo} alt="Voyagers Logo" className="w-16 sm:w-12" />
                 <span className="text-lg">
                   Voyagers Beat <br />
                   <span className="text-sm font-light">Live to Travel</span>
@@ -39,57 +34,8 @@ const Footer = () => {
                 unforgettable journeys. Explore the world, one destination at a
                 time.
               </p>
-              <div className="flex space-x-4 text-gray-400">
-                <a
-                  href="https://www.linkedin.com/company/voyagersbeat07/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  <FaLinkedin size={24} />
-                </a>
-                <a
-                  href="https://www.youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-red-500 transition-colors"
-                >
-                  <FaYoutube size={24} />
-                </a>
-                <a
-                  href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  <FaTwitter size={24} />
-                </a>
-                <a
-                  href="https://www.facebook.com/voyagersBeat/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-600 transition-colors"
-                >
-                  <FaFacebook size={24} />
-                </a>
-                <a
-                  href="https://www.instagram.com/voyagersbeat?igsh=OGI2cGh0NzdvamE4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-pink-400 transition-colors"
-                >
-                  <FaInstagram size={24} />
-                </a>
-                <a
-                  href="https://wa.me/8448591315"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-green-400 transition-colors"
-                >
-                  <FaWhatsapp size={24} />
-                </a>
-              </div>
             </div>
+
             {/* Our Solutions */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Our Solutions</h3>
@@ -184,6 +130,65 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+          </div>
+          {/* social icon  */}
+          <div className="xl:pr-96 px-0">
+            <div className="xl:pr-96 px-0">
+              <div className="xl:pr-52 px-0">
+                <div className="flex justify-center items-center space-x-4 bg-gray-700 text-gray-400 my-6 rounded-full px-4 py-3">
+                  <a
+                    href="https://www.linkedin.com/company/voyagersbeat07/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    <FaLinkedin size={24} />
+                  </a>
+                  <a
+                    href="https://www.twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    <FaTwitter size={24} />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/voyagersBeat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 transition-colors"
+                  >
+                    <FaFacebook size={24} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/voyagersbeat?igsh=OGI2cGh0NzdvamE4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-pink-400 transition-colors"
+                  >
+                    <FaInstagram size={24} />
+                  </a>
+                  <a
+                    href="https://wa.me/8448591315"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-green-400 transition-colors"
+                  >
+                    <FaWhatsapp size={24} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* footer img  */}
+
+          <div className="mt-8">
+            <img
+              src={FooterImg}
+              alt="Footer Image"
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           {/* Footer Bottom */}
