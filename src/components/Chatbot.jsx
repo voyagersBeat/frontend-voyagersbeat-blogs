@@ -144,11 +144,11 @@ const App = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && sendMessage()}
               placeholder="Type a message..."
-              className="flex-grow px-4 py-1.5 rounded-sm border border-gray-300 focus:outline-none "
+              className="flex-grow px-3 py-1.5 rounded-sm border border-gray-300 focus:outline-none text-sm md:text-base"
             />
             <button
               onClick={sendMessage}
-              className="ml-2 px-4 py-1.5 bg-[#1e73be] text-white rounded-sm hover:bg-blue-700"
+              className="ml-2 px-3 py-1.5 text-sm md:text-base bg-[#1e73be] text-white rounded-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Send
             </button>

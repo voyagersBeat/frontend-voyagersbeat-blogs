@@ -82,7 +82,7 @@ const Navbar = () => {
                 className="h-8 w-8 rounded-full border border-gray-300"
               />
               <button
-                className="bg-[#1e73be] px-4 py-2 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+                className="bg-[#1e73be] px-4 py-2 text-white rounded-sm hover:bg-blue-700 transition-colors duration-300"
                 onClick={handleLogout}
               >
                 Logout
@@ -97,7 +97,7 @@ const Navbar = () => {
                 className="h-8 w-8 rounded-full border border-gray-300"
               />
               <Link to="/dashboard">
-                <button className="bg-[#1e73be] px-4 py-2 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
+                <button className="bg-[#1e73be] px-4 py-2 text-white rounded-sm hover:bg-blue-700 transition-colors duration-300">
                   Dashboard
                 </button>
               </Link>
