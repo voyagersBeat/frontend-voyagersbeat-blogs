@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsSite";
 import WhatsSite from "./components/WhatsSite";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Footer />
         </footer>
         <WhatsAppButton />
+        <Chatbot />
       </div>
     </>
   );

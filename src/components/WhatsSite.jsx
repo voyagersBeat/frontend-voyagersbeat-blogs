@@ -14,7 +14,7 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-5 flex flex-col items-center space-y-4 z-50">
+    <div className="fixed bottom-6 left-5 flex flex-col items-center space-y-4 z-50">
       {/* WhatsApp Button */}
       <div
         className="bg-gradient-to-r from-green-400 to-green-600 text-white p-3 rounded-full shadow-xl hover:shadow-2xl transition transform hover:scale-110 cursor-pointer flex items-center justify-center"
