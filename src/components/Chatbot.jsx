@@ -4,7 +4,7 @@ import { AiOutlineClose, AiOutlineMessage } from "react-icons/ai"; // Import Rea
 
 const App = () => {
   const [messages, setMessages] = useState([
-    { role: "bot", content: "Hi, how can I help you?" }, // Initial message
+    { role: "bot", content: "Hey there! How may I assist you? " }, // Initial message
   ]);
   const [options, setOptions] = useState([]);
   const [input, setInput] = useState("");
