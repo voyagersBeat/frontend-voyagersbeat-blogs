@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import Blogs from "../blogs/Blogs";
+import FooterCarousel from "../../components/FooterCarousel";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <div className="bg-white text-primary container mx-auto mt-32 sm:p-8 p-4">
         <Hero />
         <Blogs />
+        <FooterCarousel />
       </div>
     </>
   );

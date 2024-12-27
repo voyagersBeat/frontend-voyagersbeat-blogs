@@ -1,3 +1,18 @@
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.curved-shape-top,
+.curved-shape-bottom {
+  border-radius: 50% / 40%;
+  transform: scale(1.1);
+  height: 100px;
+  pointer-events: none; /* Ensures these shapes do not block interaction */
+  z-index: 5;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px; /* Set the width of the scrollbar */
 }
@@ -14,3 +29,4 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #555; /* Darker color on hover */
 }
+
