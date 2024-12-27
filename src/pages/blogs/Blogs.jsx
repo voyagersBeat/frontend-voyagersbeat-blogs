@@ -1,4 +1,3 @@
-// Blogs.js (Blogs Page Component)
 import React, { useState } from "react";
 import SearchTab from "./SearchTab";
 import { useFetchBlogsQuery } from "../../redux/features/blog/blogApi";
@@ -8,9 +7,21 @@ const Blogs = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [query, setQuery] = useState({ search: "", category: "" });
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const POSTS_PER_PAGE = 9; // Number of posts per page
 
   // Fetch all blogs (no limit passed for the Blogs page)
   const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(blogs.length / POSTS_PER_PAGE);
+
+  // Get the blogs for the current page
+  const currentBlogs = blogs.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
 
   const handleSearchToChange = (e) => {
     setSearch(e.target.value);
@@ -18,6 +29,10 @@ const Blogs = () => {
 
   const handleSearch = () => {
     setQuery({ search, category });
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
   return (
@@ -39,7 +54,7 @@ const Blogs = () => {
 
       {/* Blogs Grid */}
       <div className="mt-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">
-        {blogs.map((blog) => (
+        {currentBlogs.map((blog) => (
           <Link
             to={`/blogs/${blog._id}`}
             key={blog._id}
@@ -78,6 +93,23 @@ const Blogs = () => {
       {!isLoading && blogs.length === 0 && (
         <div className="text-center py-8 text-gray-500">No blogs found.</div>
       )}
+
+      {/* Pagination */}
+      <div className="mt-8 flex justify-center items-center space-x-2">
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={`px-4 py-2 rounded-sm ${
+              currentPage === page
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
