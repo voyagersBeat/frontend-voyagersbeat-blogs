@@ -2,6 +2,8 @@ import React from "react";
 import Hero from "./Hero";
 import Blogs from "../blogs/Blogs";
 import FooterCarousel from "../../components/FooterCarousel";
+import Testimonials from "../shortPages/Testimonials";
+import Statistics from "../shortPages/Statistics";
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
         <Hero />
         <Blogs />
         <FooterCarousel />
+        <Testimonials />
+        <Statistics />
       </div>
     </>
   );
