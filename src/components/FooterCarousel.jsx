@@ -99,7 +99,7 @@ export default function App() {
               key={slide.id}
               className="flex justify-center items-center"
             >
-              <div className="relative w-full md:h-[450px] h-[290px] overflow-hidden group">
+              <div className="relative w-full md:h-[450px] h-[320px] overflow-hidden group">
                 <img
                   src={slide.image}
                   alt={slide.title}
