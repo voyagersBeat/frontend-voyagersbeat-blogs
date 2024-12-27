@@ -198,7 +198,7 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <FaPhoneAlt />
               <span>
-                <a href="tel:+918448591315" className="hover:text-gray-600">
+                <a href="tel:+918448591315" className="hover:text-white">
                   +91 8448591315
                 </a>
               </span>
@@ -208,7 +208,7 @@ const Footer = () => {
               <span>
                 <a
                   href="mailto:info@voyagersbeat.com"
-                  className="hover:text-gray-600"
+                  className="hover:text-white"
                 >
                   info@voyagersbeat.com
                 </a>
@@ -219,7 +219,7 @@ const Footer = () => {
               <span>
                 <a
                   href="https://www.voyagersbeat.com"
-                  className="hover:text-gray-600"
+                  className="hover:text-white"
                 >
                   www.voyagersbeat.com
                 </a>
