@@ -25,7 +25,10 @@ const Hero = () => {
           crafted just for you. Let your journey be a masterpiece of
           unforgettable moments.
         </p>
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 animate-bounce">
+        {/* <button className="mt-6 px-6 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 animate-bounce">
+          <Link to="https://voyagersbeat.com/">Start Your Adventure</Link>
+        </button> */}
+        <button className="mt-6 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md hover:from-pink-600 hover:to-purple-600 transition-transform transform hover:scale-110 animate-bounce">
           <Link to="https://voyagersbeat.com/">Start Your Adventure</Link>
         </button>
       </div>
