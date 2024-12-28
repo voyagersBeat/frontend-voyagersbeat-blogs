@@ -52,7 +52,8 @@ const TicketStatus = () => {
     <div className="bg-gradient-to-b from-blue-50 via-white to-gray-50 py-8">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Live Travel Status
+          Live Travel Status <br />
+          <span className="text-lg">( Check your live travel status )</span>
         </h2>
 
         {/* Tabs for selecting travel mode */}
