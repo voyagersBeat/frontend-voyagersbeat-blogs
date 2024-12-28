@@ -109,7 +109,7 @@ export default function App() {
                   <h3 className="text-sm font-sm bg-[#1e73be] px-3 py-1 rounded-full cursor-pointer">
                     <span className="flex items-center flex-row gap-1">
                       <FaMapMarkerAlt className="hidden sm:block" />
-                      {slide.title}
+                      <a href="https://voyagersbeat.com/">{slide.title}</a>
                     </span>
                   </h3>
                 </div>
