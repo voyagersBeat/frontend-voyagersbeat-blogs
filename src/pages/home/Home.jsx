@@ -5,6 +5,7 @@ import FooterCarousel from "../../components/FooterCarousel";
 import Testimonials from "../shortPages/Testimonials";
 import Statistics from "../shortPages/Statistics";
 import PopularFaq from "../../components/PopularFaq";
+import TicketStatus from "../../components/TicketStatus";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <Testimonials />
         <Statistics />
         <PopularFaq />
+        <TicketStatus />
       </div>
     </>
   );
