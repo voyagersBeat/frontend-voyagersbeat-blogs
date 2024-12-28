@@ -4,6 +4,7 @@ import Blogs from "../blogs/Blogs";
 import FooterCarousel from "../../components/FooterCarousel";
 import Testimonials from "../shortPages/Testimonials";
 import Statistics from "../shortPages/Statistics";
+import PopularFaq from "../../components/PopularFaq";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <FooterCarousel />
         <Testimonials />
         <Statistics />
+        <PopularFaq />
       </div>
     </>
   );
