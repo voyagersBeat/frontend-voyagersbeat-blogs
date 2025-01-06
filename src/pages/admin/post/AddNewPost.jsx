@@ -48,25 +48,42 @@ const AddNewPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+      console.error("No token found. Please log in again.");
+      return;
+    }
+
     try {
       const content = await editorRef.current.save();
-      const newPost = {
-        title,
-        coverImg,
-        content,
-        description: metaDescription,
-        category,
-        author: user?.id,
-        rating,
-      };
+      const response = await fetch(
+        "https://backend-voyagersbeat-blogs.onrender.com/api/blogs/create-post",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            title,
+            coverImg,
+            content,
+            description: metaDescription,
+            category,
+            author: user?.id,
+            rating,
+          }),
+        }
+      );
 
-      const responce = await postBlog(newPost).unwrap();
-      console.log("responce is ", responce);
-      alert("Blog is posted successfully");
-      navigate("/destination");
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      alert("Blog posted successfully!");
     } catch (err) {
-      console.log("Failed to submit the post:", err);
-      setMessage("Failed to Submit the Post Please try again later");
+      console.error("Failed to submit the post:", err);
     }
   };
 
