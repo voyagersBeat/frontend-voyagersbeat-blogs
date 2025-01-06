@@ -5,13 +5,12 @@ export const blogApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://backend-voyagersbeat-blogs.onrender.com/api/",
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.user?.token;
+      const token = getState().auth.user?.token; // Fetch token from Redux state
       if (token) {
-        headers.set("Authorization", `Bearer ${token}`);
+        headers.set("Authorization", `Bearer ${token}`); // Add token to Authorization header
       }
       return headers;
     },
-
     credentials: "include", // Ensure cookies are sent with requests
   }),
   tagTypes: ["Blogs"],
