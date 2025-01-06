@@ -48,32 +48,46 @@ const AddNewPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("authToken"); // Or Redux state
+    const token = localStorage.getItem("authToken"); // Or from Redux
     console.log("Token being sent:", token);
+
+    if (!token) {
+      setMessage("No token found. Please log in again.");
+      console.error("No token found, cannot proceed");
+      return;
+    }
 
     try {
       const content = await editorRef.current.save();
-      const headers = { Authorization: `Bearer ${token}` };
-
-      const newPost = {
-        /* your post data */
-      };
       const response = await fetch(
         "https://backend-voyagersbeat-blogs.onrender.com/api/blogs/create-post",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            ...headers,
+            Authorization: `Bearer ${token}`, // Include token in header
           },
-          body: JSON.stringify(newPost),
+          body: JSON.stringify({
+            title,
+            coverImg,
+            content,
+            description: metaDescription,
+            category,
+            author: user?.id,
+            rating,
+          }),
         }
       );
 
-      if (!response.ok) throw new Error(`Error: ${response.status}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
       alert("Blog posted successfully!");
+      navigate("/destination");
     } catch (err) {
       console.error("Failed to submit the post:", err);
+      setMessage("Failed to submit the post. Please try again.");
     }
   };
 
@@ -94,94 +108,18 @@ const AddNewPost = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-start gap-4">
-          {/* left section  */}
-
-          <div className="md:w-2/3 w-full">
-            <p className="font-semibold text-lg mb-5">Content Section:</p>
-            <p className="text-sm italic">Write your post here:</p>
-            <div id="editorjs" className="text-base"></div>
-          </div>
-
-          {/* right section  */}
-
-          <div className="md:w-1/3 w-full border p-5 space-y-5">
-            <p className="text-lg font-semibold">Choose Blog Format</p>
-
-            {/* Blog Cover section  */}
-
-            <div className="space-y-2">
-              <label className="font-semibold">Blog Cover:</label>
-              <input
-                type="text"
-                placeholder="https://age.com/voyagers.png..."
-                required
-                className="w-full inline-block bg-backPrimary focus:outline-none px-4 py-2"
-                value={coverImg}
-                onChange={(e) => setCoverImg(e.target.value)}
-              />
-            </div>
-
-            {/* Category section */}
-
-            <div className="space-y-2">
-              <label className="font-semibold">Category:</label>
-              <input
-                type="text"
-                placeholder="Winter Spiti..."
-                required
-                className="w-full inline-block bg-backPrimary focus:outline-none px-4 py-2"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-            </div>
-
-            {/* Meta Description section  */}
-
-            <div className="space-y-2">
-              <label className="font-semibold">Meta Description:</label>
-              <textarea
-                cols={4}
-                rows={3}
-                placeholder="Write the Meta Description for this post..."
-                required
-                className="w-full inline-block bg-backPrimary focus:outline-none px-4 py-2 text-base"
-                value={metaDescription}
-                onChange={(e) => setMetaDescription(e.target.value)}
-              />
-            </div>
-
-            {/* Rating section  */}
-
-            <div className="space-y-2">
-              <label className="font-semibold">Rating:</label>
-              <input
-                type="number"
-                placeholder="Rating"
-                required
-                className="w-full inline-block bg-backPrimary focus:outline-none px-4 py-2  my-input"
-                value={rating}
-                onChange={(e) => setRating(Number(e.target.value))}
-              />
-            </div>
-
-            {/* Author section  */}
-
-            <div className="space-y-2">
-              <label className="font-semibold">Author:</label>
-              <input
-                type="text"
-                placeholder={`${user.username} (not editable)`}
-                required
-                className="w-full inline-block bg-backPrimary focus:outline-none px-4 py-2"
-                value={user.username}
-                disabled
-              />
-            </div>
-          </div>
+        <div className="space-y-2">
+          <label className="font-medium text-lg ">Category:</label>
+          <input
+            type="text"
+            placeholder="Winter Spiti..."
+            required
+            className="w-full inline-block bg-backPrimary focus:outline-none px-4 py-2"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
         </div>
-
+        <div id="editorjs" className="text-base"></div>
         {message && <p className="text-red-500">{message}</p>}
         <button
           type="submit"
