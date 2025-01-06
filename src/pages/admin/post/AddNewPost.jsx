@@ -48,25 +48,32 @@ const AddNewPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("authToken"); // Or Redux state
+    console.log("Token being sent:", token);
+
     try {
       const content = await editorRef.current.save();
-      const newPost = {
-        title,
-        coverImg,
-        content,
-        description: metaDescription,
-        category,
-        author: user?.id,
-        rating,
-      };
+      const headers = { Authorization: `Bearer ${token}` };
 
-      const responce = await postBlog(newPost).unwrap();
-      console.log("responce is ", responce);
-      alert("Blog is posted successfully");
-      navigate("/destination");
+      const newPost = {
+        /* your post data */
+      };
+      const response = await fetch(
+        "https://backend-voyagersbeat-blogs.onrender.com/api/blogs/create-post",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...headers,
+          },
+          body: JSON.stringify(newPost),
+        }
+      );
+
+      if (!response.ok) throw new Error(`Error: ${response.status}`);
+      alert("Blog posted successfully!");
     } catch (err) {
-      console.log("Failed to submit the post:", err);
-      setMessage("Failed to Submit the Post Please try again later");
+      console.error("Failed to submit the post:", err);
     }
   };
 
