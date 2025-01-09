@@ -6,6 +6,7 @@ import Testimonials from "../shortPages/Testimonials";
 import Statistics from "../shortPages/Statistics";
 import PopularFaq from "../../components/PopularFaq";
 import TicketStatus from "../../components/TicketStatus";
+import PopularPosts from "../shortPages/PopularPosts";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <div className="bg-white text-primary container mx-auto mt-32 sm:p-8 p-4">
         <Hero />
         <Blogs />
+        <PopularPosts />
         <FooterCarousel />
         <Testimonials />
         <Statistics />

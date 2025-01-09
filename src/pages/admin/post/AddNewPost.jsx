@@ -83,7 +83,7 @@ const AddNewPost = () => {
 
       alert("Blog posted successfully!");
     } catch (err) {
-      console.error("Failed to submit the post:", err);
+      console.error("Failed to submit the post:", err); 
     }
   };
 
