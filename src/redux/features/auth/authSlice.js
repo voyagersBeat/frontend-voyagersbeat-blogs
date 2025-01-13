@@ -8,7 +8,7 @@ export const loadUser = createAsyncThunk(
     try {
       const response = await axios.get(
         "https://backend-voyagersbeat-blogs.onrender.com/api/auth/current-user",
-        { withCredentials: true } // Send session cookies
+        { withCredentials: true } 
       );
       return response.data.user;
     } catch (error) {
@@ -37,11 +37,11 @@ const authSlice = createSlice({
       })
       .addCase(loadUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload; // Set user data
+        state.user = action.payload;
       })
       .addCase(loadUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload; // Handle error
+        state.error = action.payload; 
       });
   },
 });

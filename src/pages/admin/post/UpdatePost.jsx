@@ -103,7 +103,7 @@ const UpdatePost = () => {
     } catch (err) {
       console.error("Failed to submit the post:", err);
 
-      // Handle EditorJS block error specifically
+    
       if (err.message.includes("Block")) {
         setMessage("Error with content blocks. Please check your content.");
       } else {

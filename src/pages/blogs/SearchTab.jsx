@@ -10,7 +10,7 @@ const SearchTab = ({ search, handleSearchToChange, handleSearch }) => {
   return (
     <div className="w-full flex items-center">
       <div className="relative w-full">
-        {/* Input Field */}
+       
         <input
           type="text"
           value={search}

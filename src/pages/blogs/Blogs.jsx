@@ -9,9 +9,8 @@ const Blogs = () => {
   const [query, setQuery] = useState({ search: "", category: "" });
   const [currentPage, setCurrentPage] = useState(1);
 
-  const POSTS_PER_PAGE = 9; // Number of posts per page
+  const POSTS_PER_PAGE = 9; 
 
-  // Fetch all blogs (no limit passed for the Blogs page)
   const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
 
   // Calculate total pages

@@ -12,8 +12,8 @@ import {
   FaLock,
   FaEye,
   FaEyeSlash,
-  FaExclamationCircle, // Error Icon
-} from "react-icons/fa"; // Import eye icons
+  FaExclamationCircle, 
+} from "react-icons/fa"; 
 import { useLoginUserMutation } from "../../redux/features/auth/AuthApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

@@ -4,7 +4,7 @@ const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://backend-voyagersbeat-blogs.onrender.com/api/auth",
-    credentials: "include", // Ensures cookies are sent and received
+    credentials: "include", 
   }),
   endpoints: (builder) => ({
     registerUser: builder.mutation({

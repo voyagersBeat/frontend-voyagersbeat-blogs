@@ -17,7 +17,7 @@ const ContactUs = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: "" }); // Clear the error when the user starts typing
+    setErrors({ ...errors, [name]: "" }); 
   };
 
   const handleSubmit = async (e) => {
@@ -37,7 +37,7 @@ const ContactUs = () => {
     }
 
     if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors); // Set the errors object
+      setErrors(formErrors);
       return;
     }
 

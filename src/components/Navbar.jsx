@@ -8,10 +8,10 @@ import Avater from "../../src/assets/user profile img.png";
 import { IoMenu, IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const [openMenu, setOpenMenu] = useState(false); // State for mobile menu
+  const [openMenu, setOpenMenu] = useState(false); 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth); // Access user from Redux
+  const { user } = useSelector((state) => state.auth); 
   const [logoutUser] = useLogoutUserMutation();
 
   const toggleMenu = () => {

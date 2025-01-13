@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { AiOutlineClose, AiOutlineMessage } from "react-icons/ai"; // Import React Icons
+import { AiOutlineClose, AiOutlineMessage } from "react-icons/ai"; 
 
 const App = () => {
   const [messages, setMessages] = useState([
-    { role: "bot", content: "Hey there! How may I assist you? " }, // Initial message
+    { role: "bot", content: "Hey there! How may I assist you? " }, 
   ]);
   const [options, setOptions] = useState([]);
   const [input, setInput] = useState("");
-  const [isChatOpen, setIsChatOpen] = useState(false); // Controls chatbot visibility
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const chatWindowRef = useRef(null);
 
   const BACKEND_URL =

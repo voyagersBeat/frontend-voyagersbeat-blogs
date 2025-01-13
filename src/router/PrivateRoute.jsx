@@ -6,7 +6,6 @@ const PrivateRoute = ({ children, role }) => {
   const { user } = useSelector((state) => state.auth);
   const location = useLocation();
 
-  // Check if user exists and optionally check for the role
   if (user && (!role || user.role === role)) {
     return children;
   }

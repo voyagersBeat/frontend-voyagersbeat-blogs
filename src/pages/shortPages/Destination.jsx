@@ -32,7 +32,7 @@ const Destination = () => {
 
   // Function to handle search button click
   const handleSearch = () => {
-    setPage(1); // Reset to page 1 on search
+    setPage(1); 
   };
 
   return (

@@ -7,8 +7,6 @@ const PopularPosts = () => {
 
   // Local state for pagination
   const [currentPage, setCurrentPage] = useState(1);
-
-  // Fetch blogs sorted by popularity
   const query = { sortBy: "views" };
   const {
     data: trendingBlogs = [],
