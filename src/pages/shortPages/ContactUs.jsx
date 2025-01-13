@@ -17,7 +17,7 @@ const ContactUs = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: "" }); 
+    setErrors({ ...errors, [name]: "" });
   };
 
   const handleSubmit = async (e) => {
@@ -49,7 +49,6 @@ const ContactUs = () => {
         "https://backend-voyagersbeat-blogs.onrender.com/api/contact",
         formData
       );
-      console.log(response.data);
       setFeedbackMessage({
         type: "success",
         text: "Message sent successfully!",
